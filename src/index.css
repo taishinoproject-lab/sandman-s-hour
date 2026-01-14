@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500&family=Cormorant+Garamond:wght@300;400&display=swap');
-
 @layer base {
   :root {
     /* Sandglass Night - Deep space palette */
@@ -78,12 +76,12 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", system-ui, sans-serif;
     font-weight: 300;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Times New Roman", serif;
     font-weight: 300;
   }
 }
