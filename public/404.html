@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandman’s Hour</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var location = window.location;
+        var pathSegments = location.pathname.split("/").filter(Boolean);
+        var basePath = pathSegments.length ? "/" + pathSegments[0] + "/" : "/";
+        var redirectPath = location.pathname.replace(basePath, "/");
+        var redirectQuery = location.search ? location.search.slice(1) : "";
+        var query = redirectPath + (redirectQuery ? "&" + redirectQuery : "");
+        location.replace(basePath + "?" + query.replace(/&/g, "~and~") + location.hash);
+      })();
+    </script>
+  </body>
+</html>
