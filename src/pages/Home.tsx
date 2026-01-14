@@ -16,11 +16,20 @@ import {
   timeToMinutes,
   formatTimeDiff,
 } from '@/lib/sleepCalculations';
-import { Settings, Moon, Clock } from 'lucide-react';
+import {
+  isNotificationSupported,
+  getNotificationPermission,
+  requestNotificationPermission,
+  sendNightModeNotification,
+  wasNotificationSentToday,
+  markNotificationSent,
+} from '@/lib/notifications';
+import { Settings, Moon, Clock, Bell, BellOff } from 'lucide-react';
 
 export default function Home() {
   const navigate = useNavigate();
   const [now, setNow] = useState(new Date());
+  const [notificationPermission, setNotificationPermission] = useState(getNotificationPermission());
 
   const settings = getSettings();
   const tasks = getPrepTasks();
@@ -42,6 +51,11 @@ export default function Home() {
       setNow(currentTime);
       
       if (isNightModeTime(currentTime, nightModeStart)) {
+        // Send notification when night mode starts (once per day)
+        if (!wasNotificationSentToday() && notificationPermission === 'granted') {
+          sendNightModeNotification();
+          markNotificationSent();
+        }
         navigate('/night');
       }
     };
@@ -49,7 +63,13 @@ export default function Home() {
     checkTime(); // Check immediately
     const interval = setInterval(checkTime, 60000); // Check every minute
     return () => clearInterval(interval);
-  }, [nightModeStart, navigate]);
+  }, [nightModeStart, navigate, notificationPermission]);
+
+  // Handle notification permission request
+  const handleRequestPermission = async () => {
+    const permission = await requestNotificationPermission();
+    setNotificationPermission(permission);
+  };
 
   // Calculate time until night mode
   const timeUntilNightMode = useMemo(() => {
@@ -74,13 +94,30 @@ export default function Home() {
           <div>
             <h1 className="text-lg font-serif text-foreground">Sandglass Night</h1>
           </div>
-          <Button 
-            variant="night-ghost" 
-            size="icon"
-            onClick={() => navigate('/setup')}
-          >
-            <Settings className="w-5 h-5" />
-          </Button>
+          <div className="flex gap-2">
+            {/* Notification Toggle */}
+            {isNotificationSupported() && (
+              <Button 
+                variant="night-ghost" 
+                size="icon"
+                onClick={handleRequestPermission}
+                title={notificationPermission === 'granted' ? '通知ON' : '通知を有効にする'}
+              >
+                {notificationPermission === 'granted' ? (
+                  <Bell className="w-5 h-5 text-accent" />
+                ) : (
+                  <BellOff className="w-5 h-5 opacity-50" />
+                )}
+              </Button>
+            )}
+            <Button 
+              variant="night-ghost" 
+              size="icon"
+              onClick={() => navigate('/setup')}
+            >
+              <Settings className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
 
         {/* Current Time */}
