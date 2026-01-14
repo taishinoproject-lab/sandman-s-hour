@@ -8,13 +8,14 @@
   <body>
     <script>
       (function () {
-        var location = window.location;
-        var pathSegments = location.pathname.split("/").filter(Boolean);
-        var basePath = pathSegments.length ? "/" + pathSegments[0] + "/" : "/";
-        var redirectPath = location.pathname.replace(basePath, "/");
-        var redirectQuery = location.search ? location.search.slice(1) : "";
-        var query = redirectPath + (redirectQuery ? "&" + redirectQuery : "");
-        location.replace(basePath + "?" + query.replace(/&/g, "~and~") + location.hash);
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        var redirect = "/?/" + path.replace(/^\//, "");
+        if (search) {
+          redirect += search.replace("?", "&");
+        }
+        window.location.replace(redirect + hash);
       })();
     </script>
   </body>
