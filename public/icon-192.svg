@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="Sandman hourglass app icon">
+  <defs>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2c2f3a" stop-opacity="0.85" />
+      <stop offset="0.5" stop-color="#4a5568" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#2c2f3a" stop-opacity="0.85" />
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d28c" />
+      <stop offset="1" stop-color="#b8894c" />
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="42" fill="#0f172a" />
+  <g transform="translate(36 24)">
+    <ellipse cx="60" cy="12" rx="38" ry="7" fill="url(#glass)" />
+    <ellipse cx="60" cy="132" rx="38" ry="7" fill="url(#glass)" />
+    <path
+      d="M 22 12 C 22 12, 22 18, 22 22 L 54 66 C 58 70, 58 74, 54 78 L 22 122 C 22 126, 22 132, 22 132 L 98 132 C 98 132, 98 126, 98 122 L 66 78 C 62 74, 62 70, 66 66 L 98 22 C 98 18, 98 12, 98 12 Z"
+      fill="none"
+      stroke="url(#glass)"
+      stroke-width="3"
+      opacity="0.9"
+    />
+    <path d="M 22 12 L 98 12 L 66 66 L 54 66 Z" fill="url(#sand)" />
+    <path d="M 54 78 L 66 78 L 98 132 L 22 132 Z" fill="url(#sand)" opacity="0.95" />
+    <rect x="59" y="66" width="2" height="10" fill="#e0c07b" />
+    <circle cx="60" cy="72" r="3" fill="#111827" opacity="0.6" />
+  </g>
+</svg>

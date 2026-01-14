@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Sandman hourglass share image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120" />
+      <stop offset="1" stop-color="#1f2937" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2c2f3a" stop-opacity="0.9" />
+      <stop offset="0.5" stop-color="#4a5568" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#2c2f3a" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="sandTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d28c" />
+      <stop offset="1" stop-color="#c39758" />
+    </linearGradient>
+    <linearGradient id="sandBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d2a56d" />
+      <stop offset="1" stop-color="#9c6a3e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="980" cy="110" r="140" fill="#111827" opacity="0.6" />
+  <circle cx="110" cy="560" r="180" fill="#0f172a" opacity="0.6" />
+
+  <g transform="translate(520 105) scale(1.8)">
+    <ellipse cx="50" cy="10" rx="32" ry="6" fill="url(#glass)" />
+    <ellipse cx="50" cy="140" rx="32" ry="6" fill="url(#glass)" />
+    <path
+      d="M 20 10 C 20 10, 20 15, 20 20 L 45 70 C 48 73, 48 77, 45 80 L 20 130 C 20 135, 20 140, 20 140 L 80 140 C 80 140, 80 135, 80 130 L 55 80 C 52 77, 52 73, 55 70 L 80 20 C 80 15, 80 10, 80 10 Z"
+      fill="none"
+      stroke="url(#glass)"
+      stroke-width="2"
+      opacity="0.9"
+    />
+    <path d="M 20 10 L 80 10 L 55 70 L 45 70 Z" fill="url(#sandTop)" />
+    <path d="M 45 80 L 55 80 L 80 140 L 20 140 Z" fill="url(#sandBottom)" />
+    <rect x="49" y="70" width="2" height="10" fill="#e0c07b" />
+    <circle cx="50" cy="75" r="3" fill="#1f2937" opacity="0.6" />
+  </g>
+
+  <g fill="#e2e8f0">
+    <text x="140" y="270" font-size="64" font-family="'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif" font-weight="700">
+      Sandman’s Hour
+    </text>
+    <text x="140" y="335" font-size="32" font-family="'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif" opacity="0.8">
+      睡眠のロスを砂時計で見える化
+    </text>
+  </g>
+</svg>
