@@ -4,10 +4,13 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const isUserPagesRepo = repositoryName?.endsWith(".github.io");
 const basePath =
   process.env.VITE_BASE_PATH ??
   (process.env.GITHUB_PAGES === "true" && repositoryName
-    ? `/${repositoryName}/`
+    ? isUserPagesRepo
+      ? "/"
+      : `/${repositoryName}/`
     : "/");
 
 // https://vitejs.dev/config/
